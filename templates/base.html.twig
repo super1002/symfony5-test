@@ -1,12 +1,41 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+</head>
+<body>
+<header>
+    {% block header %}
+        <div class="header_logo">
+            <a href="">FW</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="">Главная</a></li>
+                <li><a href="">Добавить видео</a></li>
+                <li><a href="">Мои видео</a></li>
+            </ul>
+        </nav>
+        <button class="green">Войти</button>
+    {% endblock %}
+</header>
+<div class="center_block_main">
+    <aside>
+        {% block sidebar %}
+            <ul>
+                <li><a href="#">Добавить видео</a></li>
+                <li><a href="#">Добавить категорию</a></li>
+            </ul>
+        {% endblock %}
+    </aside>
+    <main>
+        {% block main %}
+        {% endblock %}
+    </main>
+</div>
+<footer>FOOTER</footer>
+{% block javascripts %}{% endblock %}
+</body>
 </html>
