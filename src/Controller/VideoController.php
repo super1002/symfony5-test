@@ -2,19 +2,28 @@
 
 namespace App\Controller;
 
+use App\Entity\Video;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
 class VideoController extends AbstractController
 {
     /**
-     * @Route("/video", name="video")
+     * @Route("/show_videos", name="show_videos")
      */
-    public function index()
+    public function showVideos()
     {
-        return $this->render('video/index.html.twig', [
-            'controller_name' => 'VideoController',
-        ]);
+        $videos = $this->getDoctrine()->getRepository(Video::class)->findAll();
+        return $this->render('video/show_videos.html.twig', ['videos' => $videos]);
+    }
+
+    /**
+     * @Route("/show_video/{youtubeId}", name="show_video")
+     */
+    public function showVideo($youtubeId)
+    {
+        $video = $this->getDoctrine()->getRepository(Video::class)->findOneBy(['youtube_id' => $youtubeId]);
+        return $this->render('video/show_video.html.twig', ['video' => $video]);
     }
 
     /**
