@@ -9,12 +9,12 @@
 <header>
     {% block header %}
         <div class="header_logo">
-            <a href="">FW</a>
+            <a href="{{ path('home_page') }}">FW</a>
         </div>
         <nav>
             <ul>
-                <li><a href="">Главная</a></li>
-                <li><a href="">Добавить видео</a></li>
+                <li><a href="{{ path('home_page') }}">Главная</a></li>
+                <li><a href="{{ path('add_video') }}">Добавить видео</a></li>
                 <li><a href="">Мои видео</a></li>
             </ul>
         </nav>
@@ -25,13 +25,13 @@
     <aside>
         {% block sidebar %}
             <ul>
-                <li><a href="#">Добавить видео</a></li>
-                <li><a href="#">Добавить категорию</a></li>
+                <li><a href="{{ path('add_video') }}">Добавить видео</a></li>
+                <li><a href="{{ path('category') }}">Добавить категорию</a></li>
             </ul>
         {% endblock %}
     </aside>
     <main>
-        {% block main %}
+        {% block content %}
         {% endblock %}
     </main>
 </div>
