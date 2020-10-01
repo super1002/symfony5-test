@@ -13,7 +13,8 @@ class VideoController extends AbstractController
      */
     public function showVideos()
     {
-        $videos = $this->getDoctrine()->getRepository(Video::class)->findAll();
+        // $videos = $this->getDoctrine()->getRepository(Video::class)->findAll();
+        $videos = $this->getDoctrine()->getRepository(Video::class)->findWithCategories();
         return $this->render('video/show_videos.html.twig', ['videos' => $videos]);
     }
 
@@ -37,12 +38,12 @@ class VideoController extends AbstractController
     }
 
     /**
-     * @Route("/show_cat_videos/{categoryId}", name="show_cat_videos")
+     * @Route("/show_cat_videos/{categoryId}", name="show_cat_videos", requirements={"categoryId"="\d"})
      */
     public function showByCategory($categoryId)
     {
         // $videos = $this->getDoctrine()->getRepository(Video::class)->findBy(['category_id' => $categoryId]);
-//        $videos =
+        $videos = $this->getDoctrine()->getRepository(Video::class)->findByCategory($categoryId);
 
         return $this->render('video/show_videos.html.twig', ['videos' => $videos]);
     }

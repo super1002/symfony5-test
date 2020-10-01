@@ -19,6 +19,31 @@ class VideoRepository extends ServiceEntityRepository
         parent::__construct($registry, Video::class);
     }
 
+    public function findByCategory($categoryId)
+    {
+        $videos = $this->createQueryBuilder('v')
+            ->where('v.category_id = :categoryId')
+            ->setParameter('categoryId', $categoryId)
+            ->orderBy('v.title', 'ASC')
+            ->getQuery()
+            ->getResult();
+
+        return $videos;
+    }
+
+    public function findWithCategories()
+    {
+        $videos = $this->createQueryBuilder('v')
+            ->select('v', 'c')
+            ->join('v.category_id', 'c')
+            ->getQuery()
+            ->getResult();
+
+        return $videos;
+    }
+
+
+
     // /**
     //  * @return Video[] Returns an array of Video objects
     //  */
