@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CategoryController!{% endblock %}
+{% block title %}Категории{% endblock %}
 
 {% block content %}
-    <h1>Show categories</h1>
+    <h1>Категории</h1>
     <ul>
         {% for category in categories %}
             <li><a href="{{ path('show_cat_videos', {'categoryId': category.id}) }}">{{ category.title }}</a></li>

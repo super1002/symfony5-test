@@ -41,7 +41,9 @@ class VideoController extends AbstractController
      */
     public function showByCategory($categoryId)
     {
-        $videos = $this->getDoctrine()->getRepository(Video::class)->findBy(['category_id' => $categoryId]);
+        // $videos = $this->getDoctrine()->getRepository(Video::class)->findBy(['category_id' => $categoryId]);
+//        $videos =
+
         return $this->render('video/show_videos.html.twig', ['videos' => $videos]);
     }
 

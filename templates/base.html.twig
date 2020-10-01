@@ -2,21 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Welcome!{% endblock %}</title>
+    <title>Fast Video: {% block title %}Welcome!{% endblock %}</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
 <header>
     {% block header %}
         <div class="header_logo">
-            <a href="{{ path('home_page') }}">FW</a>
+            <a href="{{ path('home_page') }}">Fast Video</a>
         </div>
         <nav>
             <ul>
                 <li><a href="{{ path('home_page') }}">Главная</a></li>
                 <li><a href="{{ path('show_categories') }}">Категории</a></li>
-                <li><a href="{{ path('add_video') }}">Добавить видео</a></li>
-                <li><a href="{{ path('show_videos') }}">Мои видео</a></li>
+                <li><a href="{{ path('show_videos') }}">Все видео</a></li>
+                {#<li><a href="{{ path('add_video') }}">Добавить видео</a></li>#}
             </ul>
         </nav>
         <button class="green">Войти</button>

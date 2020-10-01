@@ -23,7 +23,7 @@ class Video
     private $title;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category")
      */
     private $category_id;
 

@@ -13,8 +13,7 @@ class CategoryController extends AbstractController
      */
     public function addCategory()
     {
-        // $categories = $this->getDoctrine()->getRepository(Category::class)->findAll();
-        // return $this->render('category/show_categories.html.twig', ['categories' => $categories]);
+         return $this->render('category/add_categories.html.twig');
     }
 
     /**
