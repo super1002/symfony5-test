@@ -2,18 +2,27 @@
 
 namespace App\Controller;
 
+use App\Entity\Category;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
 class CategoryController extends AbstractController
 {
     /**
-     * @Route("/category", name="category")
+     * @Route("/add_category", name="add_category")
      */
-    public function index()
+    public function addCategory()
     {
-        return $this->render('category/index.html.twig', [
-            'controller_name' => 'CategoryController',
-        ]);
+        // $categories = $this->getDoctrine()->getRepository(Category::class)->findAll();
+        // return $this->render('category/show_categories.html.twig', ['categories' => $categories]);
+    }
+
+    /**
+     * @Route("/show_categories", name="show_categories")
+     */
+    public function showCategories()
+    {
+        $categories = $this->getDoctrine()->getRepository(Category::class)->findAll();
+        return $this->render('category/show_categories.html.twig', ['categories' => $categories]);
     }
 }
